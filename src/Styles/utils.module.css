@@ -1,0 +1,234 @@
+/* Overlay Settings */
+.h100{
+    min-height: 100vh;
+}
+
+.h90{
+    min-height: 90vh;
+}
+
+.flex{
+    display: flex !important;
+}
+
+.flex_col{
+    display: flex;
+    flex-direction: column;
+}
+
+.items_center{
+    justify-content: center;
+    align-items: center;
+}
+
+.item_between{
+    justify-content: space-between;
+}
+
+.item_between_center{
+    align-items: center;
+    justify-content: space-between;
+}
+
+.text_right{
+    justify-content: flex-end !important;
+}
+
+.text_left{
+    justify-content: flex-start !important;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.back_color{
+    background-color: #0beef9;
+    background-image: linear-gradient(315deg, #0beef9 0%, #48a9fe 74%);
+}
+
+/* Login Page */
+
+.login_logo{
+    width: 100%;
+}
+
+.login_logo img{
+    width: 100px;
+    height: 100;
+}
+
+/* Main Page */
+
+.main_body{
+    color: #fff;
+    padding: 1rem;
+}
+
+.main_body .main_pic{
+    height: 100%;
+}
+.main_body .main_pic img{
+    height: 100%;
+    width: 100%;
+}
+
+.main_body .main_txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main_body .main_txt a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.main_body .main_arrow div{
+    border:3px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    animation: blinker 2s linear infinite;
+}
+
+/* Forms Settings */
+
+.form_section{
+    display: flex;
+    margin: 10px 0;
+    width: 100%;
+    justify-content: center;
+}
+.form_div{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 7px;
+}
+
+/* Sidebar Options */
+.sidebar_option{
+    transition: all .25s ease-in-out;
+    padding: 1rem 0;
+}
+
+.sidebar_option:hover{
+    cursor: pointer;
+    background-color: var(--latte);
+}
+
+/* Dashboard Options */
+
+.admin_option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 1rem 0;
+}
+
+.admin_option_body{
+    background-color: var(--latte);
+    min-height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 95%;
+    height: 95%;
+    border-radius: 1rem;
+    transition: all .4s ease-in-out;
+}
+
+.admin_option_body:hover{
+    transform: scale(1.04);
+}
+
+/* Forgot Password */
+
+.forgot_section{
+    background-color: var(--butterMilk);
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+/* Posts */
+
+
+.job_post{
+    transition: all .1s ease-in-out;
+}
+
+.job_post .job_endDate , .job_post .job_startDate{
+    font-size: .75rem;
+    margin: 0;
+}
+
+.job_post:hover{
+    transform:scale(1.03)
+}
+
+/* Loading */
+
+.loader {
+    width: 40px;
+    height: 20px;
+    --c:no-repeat radial-gradient(farthest-side,#000 93%,#0000);
+    background:
+      var(--c) 0    0,
+      var(--c) 50%  0;
+    background-size: 8px 8px;
+    position: relative;
+    clip-path: inset(-200% -100% 0 0);
+    animation: l6-0 1.5s linear infinite;
+  }
+  .loader:before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 12px;
+    background: #000;
+    left: -16px;
+    top: 0;
+    animation: 
+      l6-1 1.5s linear infinite,
+      l6-2 0.5s cubic-bezier(0,200,.8,200) infinite;
+  }
+  .loader:after {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto auto;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #000; 
+    animation: l6-3 1.5s linear infinite;
+  }
+  @keyframes l6-0 {
+    0%,30%  {background-position: 0  0   ,50% 0   }
+    33%     {background-position: 0  100%,50% 0   }
+    41%,63% {background-position: 0  0   ,50% 0   }
+    66%     {background-position: 0  0   ,50% 100%}
+    74%,100%{background-position: 0  0   ,50% 0   }
+  }
+  @keyframes l6-1 {
+    90%  {transform:translateY(0)}
+    95%  {transform:translateY(15px)}
+    100% {transform:translateY(15px);left:calc(100% - 8px)}
+  }
+  @keyframes l6-2 {
+    100% {top:-0.1px}
+  }
+  @keyframes l6-3 {
+    0%,80%,100% {transform:translate(0)}
+    90%         {transform:translate(26px)}
+  }
+
+/* Animations */
+
+@keyframes blinker {
+    50% {
+        opacity: 0.34;
+        transform: scale(1.1);
+    }
+}

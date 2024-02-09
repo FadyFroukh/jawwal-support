@@ -1,0 +1,50 @@
+:root{
+    --darkBlue:#161A30;
+    --lightBlue:#31304D;
+    --grey:#B6BBC4;
+    --sand:#F0ECE5;
+    --black:#000;
+    --latte:#F4DFC8;
+    --butterMilk:#F4EAE0;
+    --lightGrey:#FAF6F0;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Titillium Web', sans-serif !important;
+}
+
+.p-breadcrumb{
+    border: none;
+}
+
+.p-menubar a , .p-breadcrumb a{
+    text-decoration: none;
+}
+
+.p-menubar ul, .p-breadcrumb ul {
+    margin: 0;
+}
+
+.quote{
+    line-height: 1.7;
+    color: var(--darkBlue);
+}
+
+.p-card-content{
+    padding: 0;
+}
+
+.p-sidebar-content{
+    padding: 0;
+}
+
+
+
+/* About Us Page */
+
+.about_main{
+    min-height: 100vh;
+}

@@ -1,0 +1,26 @@
+import { createContext, useState } from "react"
+import DashboardPageFeature from '../../Features/DashboardPageFeature/DashboardPageFeature'
+
+export const dashboardContext = createContext({
+    action:"",
+    setAction:()=>{},
+    crumbs:[],
+    setCrumbs:()=>{},
+    job:"",
+    setJob:()=>{}
+});
+
+const DashboardPage = () => {
+    const [action,setAction] = useState("");
+    const [crumbs,setCrumbs] = useState([]);
+    const [job,setJob] = useState({});
+  return (
+    <dashboardContext.Provider value={{action,setAction,crumbs,setCrumbs,job,setJob}}>
+        <main>
+            <DashboardPageFeature/>
+        </main>
+    </dashboardContext.Provider>
+  )
+}
+
+export default DashboardPage

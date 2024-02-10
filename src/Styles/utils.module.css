@@ -91,6 +91,39 @@
     animation: blinker 2s linear infinite;
 }
 
+.main_how{
+    background: #eee;
+}
+
+.main_how .how_logo{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: .5rem solid #0beef9;
+    transition: all .65s ease-in-out;
+}
+
+.main_how .how_logo:hover{
+    background-color: #0beef9;
+    border-color: #fff;
+    transform: rotate(360deg);
+    cursor: pointer;
+}
+
+.main_how .how_logo svg{
+    font-size: 4rem;
+}  
+
+
+footer{
+    background-color: #0beef9;
+    min-height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 /* Forms Settings */
 
 .form_section{

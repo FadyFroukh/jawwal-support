@@ -36,7 +36,7 @@ const UserForm = ({user,type}) => {
                 dispatch(addUser
                 (
                     {
-                        Username,Password,Email,userID,employeeId,Activation,Role,superUser,
+                        Username,Password,Email,userID,employeeId,Activation,Role:"65b6b83dc5d84119c0dcc046",superUser,
                         createdBy:decodeToken(Cookies.get("token")).uid
                     }
                 ));
@@ -44,7 +44,7 @@ const UserForm = ({user,type}) => {
                 dispatch(editUser
                 (
                     {
-                        id:values._id,Username,Password,Email,userID,employeeId,Activation,Role
+                        id:values._id,Username,Password,Email,userID,employeeId,Activation,Role:"65b6b83dc5d84119c0dcc046"
                     }
                 ));
             }
@@ -163,22 +163,6 @@ const UserForm = ({user,type}) => {
                             </strong>
                         </FormLabel>
                         <Field name='superUser'>
-                            {
-                                (props)=>{
-                                    return <FormSelect field={props.field} items={[0,1]}/>
-                                }
-                            }
-                        </Field>
-                    </FormDiv>
-                </Col>
-                <Col lg={4} xs={12} md={6}>
-                    <FormDiv>
-                        <FormLabel>
-                            <strong>
-                                Role
-                            </strong>
-                        </FormLabel>
-                        <Field name='Role'>
                             {
                                 (props)=>{
                                     return <FormSelect field={props.field} items={[0,1]}/>

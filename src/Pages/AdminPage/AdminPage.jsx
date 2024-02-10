@@ -1,5 +1,6 @@
 import { createContext, useState } from "react"
 import AdminPageFeature from "../../features/AdminPageFeature/AdminPageFeature"
+import styles from "../../Styles/utils.module.css"
 
 export const adminContext = createContext({
     action:"",
@@ -15,7 +16,7 @@ const AdminPage = () => {
 
   return (
     <adminContext.Provider value={{action,setAction,crumbs,setCrumbs}}>
-        <main>
+        <main className={`${styles.h90}`}>
             <AdminPageFeature/>
         </main>
     </adminContext.Provider>

@@ -6,8 +6,6 @@ import Users from "./Users";
 import { adminContext } from "../../../pages/AdminPage/AdminPage";
 import { Col } from "react-bootstrap";
 import SearchForm from "../../../utils/Form/SearchForm";
-import { decodeToken } from "react-jwt";
-import Cookies from "js-cookie";
 
 const UsersManagement = () => {
 
@@ -27,6 +25,10 @@ const UsersManagement = () => {
     useEffect(()=>{
       setFilteredUsers(adminPage.users);
     },[adminPage.users]);
+
+    useEffect(()=>{
+      adminPage.editUser.msg && operationSuccess("User Deleted")
+    },[adminPage.deletePost]);
 
     const searchFunction = (value,entries)=>{
       return entries.filter(entry=>entry.Username.toLowerCase().includes(value.toLowerCase()));

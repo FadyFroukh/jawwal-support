@@ -8,14 +8,14 @@ import { decodeToken } from 'react-jwt';
 
 const MainHeader = () => {
 
-  const [dashboardLink,setDashboardLink] = useState("");
+  const [dashboardLink,setDashboardLink] = useState("login");
 
   useEffect(()=>{
     if (Cookies.get("token")){
       if (decodeToken(Cookies.get("token")).superUser){
         setDashboardLink("admin")
       }else{
-        setDashboardLink("dashboardLink");
+        setDashboardLink("dashboard");
       }
     }
   },[]);
@@ -32,7 +32,6 @@ const MainHeader = () => {
           navbarScroll
         >
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/about">About Us</Nav.Link>
           <Nav.Link href={`/${dashboardLink}`}>Dashboard</Nav.Link>
         </Nav>
         <Nav>

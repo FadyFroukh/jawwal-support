@@ -8,6 +8,7 @@ import MainPage from "./Pages/MainPage/MainPage";
 import DashboardPage from "./Pages/DashboardPage/DashboardPage";
 import AdminPage from "./Pages/AdminPage/AdminPage";
 import DeletePopup from "./utils/Others/DeletePopup";
+import Footer from "./utils/Others/Footer";
 
 export const appContext = createContext({
   toast:{},
@@ -68,11 +69,12 @@ function App() {
               </> : 
               <>
               <Route path="*" element={<LoginPage/>}/>
-              <Route path="/forgot_password" element={'forgot password page'}/>
+              
               </>
             }
           </Routes>
         </BrowserRouter>
+        <Footer/>
       </appContext.Provider>
     </>
   )

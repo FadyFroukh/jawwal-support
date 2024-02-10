@@ -2,7 +2,7 @@
 import {Person,Settings,Bookmark, Chat} from '@mui/icons-material/';
 import axios from "axios";
 import swal from "sweetalert2";
-import {People,LibraryBooks} from '@mui/icons-material';
+import {People,LibraryBooks,Add,Approval,Login} from '@mui/icons-material';
 //Links
 
 
@@ -71,5 +71,23 @@ export const adminMainOptions = [
     },
 ]
 
+
+export const howOptions = [
+    {
+        name:"Request an Account",
+        data:"Requesting an account is done by sumbitting your data to us, by email or by a form that is designed to collect data related to this site",
+        icon:Add
+    },
+    {
+        name:"Wait for Approval",
+        data:"Once you submit your data, we will do research about you and make sure that your data is related to Jawwal and then give the proper response later",
+        icon:Approval
+    },
+    {
+        name:"Login to The System",
+        data:"After getting approved, please head to the login page so you can proceed to the dashboard after logging in with the credentials provided from our side",
+        icon:Login
+    }
+];
 
 //Functions

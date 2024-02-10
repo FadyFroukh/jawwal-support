@@ -4,7 +4,18 @@ import { Button, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import TypeWriter from '../../../utils/Others/TypeWriter'
+import { decodeToken } from 'react-jwt';
+import Cookies from 'js-cookie';
+import { useEffect, useState } from 'react';
 const MainBody = () => {
+
+    const [usr,setUsr] = useState({});
+
+    useEffect(()=>{
+        if (Cookies.get("token")){
+            setUsr(decodeToken(Cookies.get("token")));
+        }
+    },[]);
 
     const handleBtnClick = ()=>{
         document.body.scrollTop = 1000;
@@ -15,7 +26,7 @@ const MainBody = () => {
     <main 
         className=
         {`
-            ${styles.h90} 
+            ${styles.h100} 
             ${styles.flex} 
             ${styles.items_center} 
             ${styles.back_color}
@@ -39,7 +50,7 @@ const MainBody = () => {
                         </small>
                     </Typography>
                     <Button variant='contained' color='secondary' size='large' style={{maxWidth:"175px"}}>
-                        <Link to='/'>
+                        <Link to={`/${usr ? usr.superUser ? 'admin' : "dashboard" : "login"}`}>
                             <strong>
                                 Get Started
                             </strong>

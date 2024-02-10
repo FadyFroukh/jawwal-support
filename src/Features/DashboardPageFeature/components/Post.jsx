@@ -25,7 +25,7 @@ const Post = ({post}) => {
     };
 
   return (
-    <Card style={{ width: '100%' }} onClick={handleChangeJob}>
+    <Card style={{ width: '100%', minHeight:"220px" }} onClick={handleChangeJob}>
       <Card.Body>
         <section className={`${styles.flex} ${styles.item_between}`}>
             <Card.Title>

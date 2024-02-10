@@ -11,7 +11,6 @@ const AddUser = () => {
         employeeId:0,
         Activation:0,
         superUser:0,
-        Role:""
     };
 
   return (

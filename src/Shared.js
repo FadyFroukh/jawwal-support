@@ -1,5 +1,5 @@
 //Imports
-import {Person,Settings,Bookmark, Chat} from '@mui/icons-material/';
+import {Person,Settings,Bookmark, Chat, ChatBubbleSharp} from '@mui/icons-material/';
 import axios from "axios";
 import swal from "sweetalert2";
 import {People,LibraryBooks,Add,Approval,Login} from '@mui/icons-material';
@@ -69,6 +69,11 @@ export const adminMainOptions = [
         link:"posts",
         icon:LibraryBooks
     },
+    {
+        name:"Chats",
+        link:"chats",
+        icon:ChatBubbleSharp
+    }
 ]
 
 

@@ -11,6 +11,8 @@ import PostsManagement from "./components/PostsManagement";
 import EditPost from "./components/EditPost";
 import { appContext } from "../../App";
 import AddPost from './components/AddPost'
+import ChatsManagement from "./components/ChatsManagement";
+import UserChat from "./components/UserChat";
 const AdminPageFeature = () => {
 
   const {editItem} = useContext(appContext);
@@ -25,6 +27,8 @@ const AdminPageFeature = () => {
     action === 'posts' && setCrumbs([{label:"Posts Management"}]);
     action === 'addPost' && setCrumbs([{label:"Posts Management",command:()=>{setAction("posts")}},{label:"Add Post"}]);
     action === 'editPost' && setCrumbs([{label:"Posts Management",command:()=>{setAction("posts")}},{label:"Edit Post"}]);
+    action === 'chats' && setCrumbs([{label:"Chats"}]);
+    action === 'userChat' && setCrumbs([{label:"Chats",command:()=>{setAction("chats")}},{label:"User Chat"}]);
   },[action]);
 
   return (
@@ -53,6 +57,12 @@ const AdminPageFeature = () => {
             }
             {
               action === 'editPost' && <EditPost post={editItem}/>
+            }
+            {
+              action === 'chats' && <ChatsManagement/>
+            }
+            {
+              action === 'userChat' && <UserChat/>
             }
           </Row>
         </Container>

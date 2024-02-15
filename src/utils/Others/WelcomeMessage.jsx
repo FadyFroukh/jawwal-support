@@ -1,6 +1,5 @@
 import Cookies from "js-cookie"
 import { Col } from "react-bootstrap"
-import Quote from "./Quote"
 import { decodeToken } from "react-jwt"
 
 const WelcomeMessage = () => {
@@ -14,7 +13,6 @@ const WelcomeMessage = () => {
                 }
             </strong>
         </h3>
-        <Quote/>
     </Col>
   )
 }

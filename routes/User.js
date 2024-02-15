@@ -162,5 +162,15 @@ router.delete('/deleteUser/:id' ,async (req,res) =>{
       res.status(500).send('Internal Server Error');
     })
 })
+
+router.get("/admins",async(req,res)=>{
+  await User.find({superUser:1}).then(data=>{
+    
+    res.send(data);
+  }).catch(err=>{
+    console.error('Error fetching admins:', err);
+    res.status(500).send('Internal Server Error');
+  })
+})
   
   module.exports = router;

@@ -19,8 +19,8 @@ router.get('/', Pageaccess(['Read'], ['Post']) ,async (req,res) =>{
 });
 
 router.post('/' ,Pageaccess(['Write'], ['Post']) ,(req,res) =>{
-    const {problemTitle,problemDescription,createdBy} = req.body;
-
+    const {problemTitle,problemDescription,createdBy,postSteps,videoLink} = req.body;
+    
     let errors = []
 
     if(!problemTitle || !problemDescription || !createdBy){
@@ -34,7 +34,9 @@ router.post('/' ,Pageaccess(['Write'], ['Post']) ,(req,res) =>{
             var newProblem = new Problems({
                 problemTitle,
                 problemDescription,
-                createdBy
+                createdBy,
+                postSteps,
+                videoLink
             });
 
             newProblem.save().then(() =>{
@@ -58,7 +60,7 @@ router.put('/:id', Pageaccess(['Update'], ['Post']) , async (req, res) => {
       }
   
       const updateObject = {};
-      const updateFields = ['problemTitle', 'problemDescription'];
+      const updateFields = ['problemTitle', 'problemDescription','postSteps','videoLink'];
   
       updateFields.forEach(field => {
         if (req.body[field] !== undefined && req.body[field] !== null) {

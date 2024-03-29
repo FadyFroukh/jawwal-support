@@ -38,6 +38,14 @@ const Problems = new mongoose.Schema({
         type:Number,
         default : 0
     },
+    postSteps:{
+        type:Array,
+        required:true,
+        default:[]
+    },
+    videoLink:{
+        type:String,
+    }
 });
 
 module.exports = mongoose.model('Problems', Problems)

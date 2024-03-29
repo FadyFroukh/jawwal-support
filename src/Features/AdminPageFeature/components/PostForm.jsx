@@ -9,8 +9,10 @@ import { addPost, editPost, selectAdminPage } from "../slice/adminPageSlice";
 import { decodeToken } from "react-jwt";
 import Cookies from "js-cookie";
 import Loading from "../../../utils/Others/Loading";
-import { useEffect } from "react";
-import { operationFailure, operationSuccess } from "../../../Shared";
+import { useEffect, useState } from "react";
+import { operationSuccess } from "../../../Shared";
+import NoResult from "../../../utils/Others/NoResult";
+import RoundItems from "../../../utils/Others/RoundItems";
 
 const PostForm = ({post,type}) => {
 
@@ -19,6 +21,8 @@ const PostForm = ({post,type}) => {
   const usr = decodeToken(Cookies.get("token"));
 
   const dispatch = useDispatch();
+
+  const [steps,setSteps] = useState(post.postSteps ? post.postSteps : []);
 
   const initialValues = {
     ...post,
@@ -33,14 +37,14 @@ const PostForm = ({post,type}) => {
     <Formik
       initialValues={initialValues}
       onSubmit={(values)=>{
-        const {problemTitle,problemDescription} = values;
+        const {problemTitle,problemDescription,videoLink} = values;
         if (type === 'post'){
           dispatch(addPost({
-            problemTitle,problemDescription,createdBy:usr.uid
+            problemTitle,problemDescription,createdBy:usr.uid,postSteps:steps,videoLink
           }));
         }else {
           dispatch(editPost({
-            problemTitle,problemDescription,id:values._id
+            problemTitle,problemDescription,id:values._id,postSteps:steps,videoLink
           }));
         }
       }}
@@ -64,7 +68,7 @@ const PostForm = ({post,type}) => {
                   <Field name='problemTitle'>
                     {
                       (props)=>{
-                        return <InputField placeholder={'Insert Problem Title'} field={props.field}/>
+                        return <InputField placeholder={'Insert Problem Title'} field={props.field} required={true}/>
                       }
                     }
                   </Field>
@@ -80,11 +84,41 @@ const PostForm = ({post,type}) => {
                   <Field name='problemDescription'>
                     {
                       (props)=>{
-                        return <InputField placeholder={'Insert Problem Description'} field={props.field}/>
+                        return <InputField placeholder={'Insert Problem Description'} field={props.field} required={true}/>
                       }
                     }
                   </Field>
                 </FormDiv>    
+            </Col>
+            <Col lg={4} xs={12} md={6}>
+                <FormLabel>
+                  <strong>
+                      Problem Steps
+                  </strong>
+                </FormLabel>
+                <Field>
+                    {
+                      (props)=>{
+                        return <RoundItems items={steps} setItems={setSteps}/>
+                      }
+                    }
+                </Field>
+            </Col>
+            <Col lg={4} xs={12} md={6}>
+                <FormDiv>
+                  <FormLabel>
+                    <strong>
+                        Video Link
+                    </strong>
+                  </FormLabel>
+                  <Field name='videoLink'>
+                      {
+                        (props)=>{
+                          return <InputField placeholder={'Insert Video Link'} field={props.field} required={false}/>
+                        }
+                      }
+                  </Field>
+                </FormDiv>
             </Col>
             <FormSection>
               <FormButton 

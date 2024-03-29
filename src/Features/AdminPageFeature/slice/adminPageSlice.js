@@ -74,9 +74,9 @@ export const deleteUser = createAsyncThunk("adminPage/deleteUser", async ({id})=
     }
 })
 
-export const addPost = createAsyncThunk("adminPage/addPost", async ({problemTitle,problemDescription,createdBy})=>{
+export const addPost = createAsyncThunk("adminPage/addPost", async ({problemTitle,problemDescription,createdBy,postSteps,videoLink})=>{
     try{
-      var result = await axios.post("/problem",{problemTitle,problemDescription,createdBy},
+      var result = await axios.post("/problem",{problemTitle,problemDescription,createdBy,postSteps,videoLink},
       {'headers':{'Authorization': `Bearer ${Cookies.get("token")}`}});
       return result.data;
     }catch(err){
@@ -84,9 +84,9 @@ export const addPost = createAsyncThunk("adminPage/addPost", async ({problemTitl
     }
 })
 
-export const editPost = createAsyncThunk("adminPage/editPost", async ({id,problemTitle,problemDescription})=>{
+export const editPost = createAsyncThunk("adminPage/editPost", async ({id,problemTitle,problemDescription,postSteps,videoLink})=>{
     try{
-      var result = await axios.put(`problem/${id}`,{problemTitle,problemDescription},
+      var result = await axios.put(`problem/${id}`,{problemTitle,problemDescription,postSteps,videoLink},
       {'headers':{'Authorization': `Bearer ${Cookies.get("token")}`}});
       return result.data;
     }catch(err){

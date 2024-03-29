@@ -6,6 +6,8 @@ const AddPost = () => {
     const post = {
         problemTitle:"",
         problemDescription:"",
+        postSteps:[],
+        videoLink:""
     };
 
   return (

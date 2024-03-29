@@ -1,7 +1,6 @@
 import { Typography } from "@mui/material"
 import { Col } from "react-bootstrap"
 import styles from '../../../Styles/utils.module.css';
-import PostRating from "../../../utils/Others/PostRating";
 const OnePost = ({post}) => {
   return (
     <>
@@ -18,12 +17,33 @@ const OnePost = ({post}) => {
                     </Typography>
                 </div>
             </header>
-            <PostRating likes={[]}/>
             <Typography className="muted mb-2 mt-3">
                 {
                     post.problemDescription
                 }
             </Typography>
+            <Typography className="muted mb-2 mt-3">
+                Problem Steps:
+            </Typography>
+            <ul>
+                {
+                    post?.postSteps.map(step=>(
+                        <li key={step}>
+                            {step}
+                        </li>
+                    ))
+                }
+            </ul>
+            <Typography>
+                Problem Video:
+            </Typography>
+            <div className="mt-3 mb-3">
+                {
+                    post.videoLink ? 
+                    <iframe src="https://drive.google.com/file/d/1-wsq-MOcasyGe3kyqghfhC65V-YT_qJ3/preview" width="640" height="480" allow="autoplay"></iframe>
+                    : "No Video Added"
+                }
+            </div>
         </Col>
     </>
   )

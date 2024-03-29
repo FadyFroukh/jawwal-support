@@ -203,6 +203,31 @@ footer{
 
 /* Loading */
 
+/* Round Items */
+
+.round_items{
+    flex-wrap: wrap;
+}
+
+.round_items .round_item{
+    color: #fff;
+    border-radius: .65rem;
+    background-color: var(--lightBlue);
+    padding: .5rem;
+    min-width: 50px;
+    min-height: 40px;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.round_items .round_item:not(:last-of-type){
+    margin-right: 3px;
+}
+
+.round_item .item_header{
+    cursor: pointer;
+}
+
 .loader {
     width: 40px;
     height: 20px;

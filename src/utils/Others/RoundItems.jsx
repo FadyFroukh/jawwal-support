@@ -31,7 +31,7 @@ const RoundItems = ({items,setItems}) => {
         </div>
         <div className={`${styles.round_items} ${styles.flex}`}>
             {
-                items.length === 0 ? <strong>No Skills Yet</strong> : 
+                items.length === 0 ? <strong>No Steps Yet</strong> : 
                 items.map((item,index)=>(
                     <p key={index} className={`${styles.round_item} ${styles.flex_col} ${styles.items_center}`}>
                         <span className={`${styles.item_header}`}>
